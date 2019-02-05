@@ -1,5 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 const DATAPATH = '/api/data/';
@@ -18,6 +18,8 @@ export class ProfileDataService {
 
   profiles: Profile[] = [];
   data: any;
+  currentProfile: Profile;
+  currentProfileChange: Subject<Profile> = new Subject<Profile>();
 
   constructor(private http: HttpClient) { }
 
@@ -54,6 +56,7 @@ export class ProfileDataService {
     profile.imgUrl = this.genImgUrl(profile.name.toLowerCase());
 
     this.profiles.push(profile);
+    this.updateCurrentProfile(profile);
   }
 
   genImgUrl(name: string): string {
@@ -62,9 +65,21 @@ export class ProfileDataService {
     return 'http://www.cybecys.com/wp-content/uploads/2017/07/no-profile.png';
   }
 
+  getProfiles(): Profile[] {
+    return this.profiles;
+  }
+
+  getCurrentProfile(): Profile {
+    return this.currentProfile;
+  }
+
+  updateCurrentProfile(profile: Profile) {
+    this.currentProfile = profile;
+    this.currentProfileChange.next(this.currentProfile);
+  }
 }
 
-class Profile {
+export class Profile {
   name: string;
   surname: string;
   nickname: string;

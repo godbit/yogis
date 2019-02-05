@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileDataService, Profile } from '../profile-data.service';
 
 @Component({
   selector: 'app-profile-picture',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePictureComponent implements OnInit {
 
-  constructor() { }
+  imgUrl: string;
+
+  _profileSubscription;
+
+  constructor(private profileData: ProfileDataService) { }
 
   ngOnInit() {
+    this.initSubscriptions();
   }
 
+  initSubscriptions() {
+    this._profileSubscription = this.profileData.currentProfileChange.subscribe((profile: Profile) => {
+        this.imgUrl = profile.imgUrl;
+    });
+  }
 }

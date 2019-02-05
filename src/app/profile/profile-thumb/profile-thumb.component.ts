@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileDataService, Profile } from '../profile-data.service';
 
 @Component({
   selector: 'app-profile-thumb',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileThumbComponent implements OnInit {
 
-  constructor() { }
+  currentProfile: Profile;
+  _profileSubscription;
+
+  constructor(private profileData: ProfileDataService) { }
 
   ngOnInit() {
+    this.initSubscriptions();
+  }
+
+  initSubscriptions() {
+    this._profileSubscription = this.profileData.currentProfileChange.subscribe((profile: Profile) => {
+        this.currentProfile = profile;
+    });
   }
 
 }
