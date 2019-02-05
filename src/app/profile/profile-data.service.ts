@@ -57,7 +57,9 @@ export class ProfileDataService {
   }
 
   genImgUrl(name: string): string {
-    return DATAPATH + name + '.' + IMGFORMAT;
+    // TODO: Fix this to return img from server.
+    // return DATAPATH + name + '.' + IMGFORMAT;
+    return 'http://www.cybecys.com/wp-content/uploads/2017/07/no-profile.png';
   }
 
 }
