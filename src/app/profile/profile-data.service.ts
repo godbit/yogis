@@ -3,7 +3,8 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 const DATAPATH = '/api/data/';
-const FILEFORMAT = 'json';
+const DATAFORMAT = 'json';
+const IMGFORMAT = 'png';
 
 const MEMBERS = [
   'emil',
@@ -26,7 +27,7 @@ export class ProfileDataService {
   loadProfiles() {
     for (const member in MEMBERS) {
       if (MEMBERS.hasOwnProperty(member)) {
-        const obs = this.http.get(DATAPATH + MEMBERS[member] + '.' + FILEFORMAT);
+        const obs = this.http.get(DATAPATH + MEMBERS[member] + '.' + DATAFORMAT);
         obs.subscribe((response) => this.storeProfile(response));
       }
     }
@@ -42,26 +43,35 @@ export class ProfileDataService {
     }
 
     const profile = new Profile();
-    const profileData = response['profile'];
-    for (const prop in profileData) {
-      if (profileData.hasOwnProperty(prop)) {
-        profile[prop] = profileData[prop];
-      }
-    }
+    const profileData = response.profile;
+
+    profile.name = profileData.name;
+    profile.surname = profileData.surname;
+    profile.nickname = profileData.nickname;
+    profile.traits = profileData.traits;
+    profile.description = profileData.description;
+    profile.achivements = profileData.achivements;
+    profile.imgUrl = this.genImgUrl(profile.name.toLowerCase());
 
     this.profiles.push(profile);
+  }
+
+  genImgUrl(name: string): string {
+    return DATAPATH + name + '.' + IMGFORMAT;
   }
 
 }
 
 class Profile {
-  firstname: string;
+  name: string;
   surname: string;
   nickname: string;
 
   traits: string[];
   description: string;
   achivements: string[];
+
+  imgUrl: string;
 
   constructor() { }
 }
