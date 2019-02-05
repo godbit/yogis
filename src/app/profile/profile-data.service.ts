@@ -62,7 +62,7 @@ export class ProfileDataService {
   genImgUrl(name: string): string {
     // TODO: Fix this to return img from server.
     // return DATAPATH + name + '.' + IMGFORMAT;
-    return 'http://www.cybecys.com/wp-content/uploads/2017/07/no-profile.png';
+    return 'https://avatars2.githubusercontent.com/u/13339679?s=400&u=0836439808cb4fc0a24a49061e3f3edf65e9d722&v=4';
   }
 
   getProfiles(): Profile[] {

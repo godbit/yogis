@@ -1,3 +1,5 @@
-<p>
-  profile-thumb works!
-</p>
+<div class="profile-thumb" *ngIf="currentProfile">
+  <div class="name">{{currentProfile.name}}</div>
+  <div class="nickname">{{currentProfile.nickname}}</div>
+  <div class="surname">{{currentProfile.surname}}</div>
+</div>
