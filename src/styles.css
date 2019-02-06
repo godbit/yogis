@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+:root {
+    /* Basics */
+    --white: hsl(120, 10%, 95%);
+    --light: hsl(120, 0%, 80%);
+    --gray: hsl(120, 0%, 70%);
+    --black: hsl(0, 0%, 0%);
+
+    /* App colors */
+    --main: hsl(190, 58%, 30%);
+    --main-light: hsl(190, 58%, 60%);
+    --main-dark: hsl(190, 58%, 20%);
+
+    /* Other */
+    --error: hsl(0, 75%, 50%);
+}

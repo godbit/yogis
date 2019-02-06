@@ -5,10 +5,13 @@ import { ProfilePictureComponent } from './profile-picture/profile-picture.compo
 import { ProfileThumbComponent } from './profile-thumb/profile-thumb.component';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   declarations: [ProfileContainerComponent, ProfilePictureComponent, ProfileThumbComponent, ProfileDetailsComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MatIconModule
   ],
   exports: [
     ProfileContainerComponent
