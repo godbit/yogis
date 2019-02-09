@@ -4,6 +4,7 @@ import { ProfileContainerComponent } from './profile/profile-container/profile-c
 import { ProfileThumbComponent } from './profile/profile-thumb/profile-thumb.component';
 import { ProfilePictureComponent } from './profile/profile-picture/profile-picture.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
     path: 'pic', component: ProfilePictureComponent
   },
   {
-    path: '', redirectTo: '/profile', pathMatch: 'full'
+    path: '', component: HomeComponent
   },
   {
     path: '**', component: PageNotFoundComponent

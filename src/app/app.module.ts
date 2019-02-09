@@ -9,11 +9,13 @@ import { ProfileModule } from './profile/profile.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavModule } from './nav/nav.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
