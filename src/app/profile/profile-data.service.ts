@@ -4,11 +4,15 @@ import { HttpClient } from '@angular/common/http';
 
 const DATAPATH = '/api/data/';
 const DATAFORMAT = 'json';
-const IMGFORMAT = 'png';
+const IMGFORMAT = 'jpg';
 
 const MEMBERS = [
+  'cissi',
+  'emelia',
   'emil',
-  'henry'
+  'fanny',
+  'henry',
+  'lanny'
 ];
 
 @Injectable({
@@ -60,9 +64,8 @@ export class ProfileDataService {
   }
 
   genImgUrl(name: string): string {
-    // TODO: Fix this to return img from server.
-    // return DATAPATH + name + '.' + IMGFORMAT;
-    return 'https://avatars2.githubusercontent.com/u/13339679?s=400&u=0836439808cb4fc0a24a49061e3f3edf65e9d722&v=4';
+    name = this.getSafeName(name);
+    return DATAPATH + name + '.' + IMGFORMAT;
   }
 
   getProfiles(): Profile[] {
@@ -77,6 +80,13 @@ export class ProfileDataService {
     this.currentProfile = profile;
     this.currentProfileChange.next(this.currentProfile);
   }
+
+  private getSafeName(s: string) {
+    s = s.replace(/[áàäâãå]/, 'a');
+    s = s.replace(/[óòöôõ]/, 'o');
+    return s;
+  }
+
 }
 
 export class Profile {
