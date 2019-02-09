@@ -15,6 +15,7 @@ export class ProfileThumbComponent implements OnInit {
 
   ngOnInit() {
     this.initSubscriptions();
+    this.currentProfile = this.profileData.getCurrentProfile();
   }
 
   initSubscriptions() {

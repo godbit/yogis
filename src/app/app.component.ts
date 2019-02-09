@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProfileDataService } from './profile/profile-data.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'yogis';
+  constructor(private profileDataService: ProfileDataService) {
+    this.profileDataService.loadProfiles();
+  }
 }

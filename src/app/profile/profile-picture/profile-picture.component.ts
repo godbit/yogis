@@ -16,6 +16,7 @@ export class ProfilePictureComponent implements OnInit {
 
   ngOnInit() {
     this.initSubscriptions();
+    this.imgUrl = this.profileData.getCurrentProfile().imgUrl;
   }
 
   initSubscriptions() {
