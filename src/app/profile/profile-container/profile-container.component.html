@@ -1,6 +1,16 @@
 <div class="profile-container">
-  <app-profile-picture></app-profile-picture>
-  <app-profile-thumb></app-profile-thumb>
+  <p>
+    profile container
+  <div class="name">{{currentProfile.name}}</div>
+  <div *ngIf="currentProfile">
+      <img [src]="currentProfile.imgUrl" alt="">
+  </div>
+  <div class="profile-thumb" *ngIf="currentProfile">
+      <div class="name">{{currentProfile.name}}</div>
+      <div class="nickname">{{currentProfile.nickname}}</div>
+      <div class="surname">{{currentProfile.surname}}</div>
+      <mat-icon>place</mat-icon>
+    </div>
 </div>
 
 

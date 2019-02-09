@@ -1,0 +1,9 @@
+<p>
+  profile-overview works!
+</p>
+
+<a *ngFor="let profile of profiles" [routerLink]="profile.name" class="nav-item">
+    {{profile.name}}
+</a>
+<router-outlet></router-outlet>
+

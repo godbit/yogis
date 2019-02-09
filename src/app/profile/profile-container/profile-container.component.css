@@ -1,3 +1,5 @@
+/* ----------- Container ----------- */
+
 .profile-container {
     display: flex;
     flex-direction: row;
@@ -11,4 +13,25 @@
     .profile-container {
         flex-direction: column;
     }
+}
+
+/* ----------- Thumb ----------- */
+
+.profile-thumb {
+    padding: 30px;
+    width: 20vw;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--black);
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.name, .surname {
+    font-size: 50px;
+}
+
+.nickname {
+    font-style: italic;
+    font-size: 40px;
 }

@@ -72,8 +72,38 @@ export class ProfileDataService {
     return this.profiles;
   }
 
+  getPropertyFromAllProfiles(propertyName: string) {
+    const props = [];
+    this.getProfiles().forEach(function (profile) {
+      if (profile.hasOwnProperty(propertyName)) {
+        props.push(profile[propertyName]);
+      }
+    });
+
+    return props;
+  }
+
+  getProfileByName(name: string): Profile {
+    let profile: Profile;
+    this.getProfiles().forEach(function (prof): Profile {
+      if (prof.name === name) {
+        profile = prof;
+        return;
+      }
+    });
+    return profile;
+  }
+
   getCurrentProfile(): Profile {
     return this.currentProfile;
+  }
+
+  setCurrentProfile(name: string) {
+    const profile = this.getProfileByName(name);
+    if (profile === null) {
+      return;
+    }
+    this.updateCurrentProfile(profile);
   }
 
   updateCurrentProfile(profile: Profile) {
