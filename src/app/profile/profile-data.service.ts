@@ -53,12 +53,12 @@ export class ProfileDataService {
     profile.traits = profileData.traits;
     profile.description = profileData.description;
     profile.achivements = profileData.achivements;
-    profile.imgUrl = this.genImgUrl(profile.key);
+    profile.imgUrl = this.getImgUrl(profile.key);
 
     return profile;
   }
 
-  genImgUrl(key: string): string {
+  getImgUrl(key: string): string {
     return DATAPATH + key + '.' + IMGFORMAT;
   }
 
