@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileDataService, Profile } from '../profile-data.service';
+import { ProfileDataService, Profile, ProfileState } from '../profile-data.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -10,24 +10,41 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfileContainerComponent implements OnInit {
 
   currentProfile: Profile;
-  _profileSubscription;
+  state: ProfileState = ProfileState.Void;
 
   constructor(private profileDataService: ProfileDataService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.initSubscriptions();
     this.route.paramMap.subscribe(params => {
       console.log(params);
       const name = params.get('name');
-      this.profileDataService.setCurrentProfile(name);
-    });
+      console.log('setting profile to:' + name);
+      this.stateLoading();
+      const obs = this.profileDataService.getProfile(name);
+      obs.subscribe((response) => this.handleProfileResponse(response));
+    },
+    err => {
+      this.stateNotFound();
+    }
+    );
   }
 
-  initSubscriptions() {
-    this._profileSubscription = this.profileDataService.currentProfileChange.subscribe((profile: Profile) => {
-        this.currentProfile = profile;
-    });
+  handleProfileResponse(response) {
+    this.stateFound();
+    this.currentProfile = this.profileDataService.asProfile(response);
   }
 
+  stateLoading() {
+    this.state = ProfileState.Loading;
+  }
+
+  stateFound() {
+    this.state = ProfileState.Found;
+  }
+
+  stateNotFound() {
+    this.state = ProfileState.NotFound;
+    console.log('ProfileContainerComponent encountered an error fetching profile ' + name);
+  }
 }

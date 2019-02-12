@@ -8,7 +8,5 @@ import { ProfileDataService } from './profile/profile-data.service';
 })
 export class AppComponent {
   title = 'yogis';
-  constructor(private profileDataService: ProfileDataService) {
-    this.profileDataService.loadProfiles();
-  }
+  constructor() { }
 }
