@@ -17,9 +17,7 @@ export class ProfileContainerComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      console.log(params);
       const name = params.get('name');
-      console.log('setting profile to:' + name);
       this.stateLoading();
       const obs = this.profileDataService.getProfile(name);
       obs.subscribe((response) => this.handleProfileResponse(response));
