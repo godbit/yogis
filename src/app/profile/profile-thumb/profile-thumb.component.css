@@ -1,0 +1,13 @@
+
+.thumb-container {
+    padding: 20px;
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    border-radius: 8px;
+    width: 20vw;
+    min-width: 200px;
+    margin: 20px;
+}
+
+.profile-img img {
+    width: 100%;
+}

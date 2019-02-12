@@ -1,9 +1,11 @@
-<p>
-  profile-overview works!
-</p>
-
 <a *ngFor="let key of keys" [routerLink]="key" class="nav-item">
     {{key}}
 </a>
+
+<div class="thumb-container">
+  <div *ngFor="let key of keys">
+    <app-profile-thumb [key]="key"></app-profile-thumb>
+  </div>
+</div>
 <router-outlet></router-outlet>
 

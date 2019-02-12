@@ -6,11 +6,13 @@ import { ProfileDetailsComponent } from './profile-details/profile-details.compo
 import { MatIconModule } from '@angular/material/icon';
 import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ProfileThumbComponent } from './profile-thumb/profile-thumb.component';
 
 @NgModule({
   declarations: [ProfileContainerComponent,
     ProfileDetailsComponent,
-    ProfileOverviewComponent
+    ProfileOverviewComponent,
+    ProfileThumbComponent
   ],
   imports: [
     CommonModule,
