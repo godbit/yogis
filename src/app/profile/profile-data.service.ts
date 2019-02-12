@@ -30,6 +30,10 @@ export class ProfileDataService {
     return obs;
   }
 
+  getKeys(): string[] {
+    return MEMBERS;
+  }
+
   /**
    * Iterates through the json response and saves it as a Profile object.
    * @param response, the response.

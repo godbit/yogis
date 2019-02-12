@@ -2,8 +2,8 @@
   profile-overview works!
 </p>
 
-<a *ngFor="let profile of profiles" [routerLink]="profile.name" class="nav-item">
-    {{profile.name}}
+<a *ngFor="let key of keys" [routerLink]="key" class="nav-item">
+    {{key}}
 </a>
 <router-outlet></router-outlet>
 

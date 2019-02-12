@@ -8,12 +8,12 @@ import { ProfileDataService, Profile } from '../profile-data.service';
 })
 export class ProfileOverviewComponent implements OnInit {
 
-  profiles: Profile[] = [];
+  keys: string[] = [];
 
   constructor(private profileDataService: ProfileDataService) { }
 
   ngOnInit() {
-    this.profiles = this.profileDataService.getProfiles();
+    this.keys = this.profileDataService.getKeys();
   }
 
 }
