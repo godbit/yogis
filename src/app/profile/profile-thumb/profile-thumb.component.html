@@ -1,10 +1,14 @@
 <div class="thumb-container" *ngIf="currentProfile">
-  <div class="profile-img">
-    <img [src]="currentProfile.imgUrl" alt="">
-  </div>
-  <div class="profile-thumb" >
-    <div class="name">{{currentProfile.name}}</div>
-    <div class="nickname">{{currentProfile.nickname}}</div>
-    <div class="surname">{{currentProfile.surname}}</div>
-  </div>
+  <a [routerLink]="key">
+    <div>
+      <div class="profile-img">
+        <img [src]="currentProfile.imgUrl" alt="">
+      </div>
+      <div class="profile-thumb" >
+        <div class="name">{{currentProfile.name}}</div>
+        <div class="nickname">{{currentProfile.nickname}}</div>
+        <div class="surname">{{currentProfile.surname}}</div>
+      </div>
+    </div>
+  </a>
 </div>
