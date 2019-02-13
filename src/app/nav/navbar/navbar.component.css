@@ -54,8 +54,6 @@ nav {
 
 a {
     padding: 1vw;
-    color: var(--black);
-    text-decoration: none;
 }
 
 a.active {

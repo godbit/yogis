@@ -2,7 +2,6 @@
 .thumb-container {
     padding: 20px;
     box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
-    border-radius: 8px;
     width: 25vw;
     min-width: 260px;
     margin: 20px;
@@ -10,6 +9,19 @@
     color: var(--black);
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 2vw;
+}
+
+.thumb-container:hover {
+    transition: ease-in-out;
+    transition-duration: 0.25s;
+    box-shadow: 4px 6px 6px rgba(32, 33, 36, 0.28);
+}
+
+.thumb-container:hover * {
+    transition: ease-in-out;
+    transition-duration: 0.25s;
+    color: rgb(194, 136, 191);
+    border-top-color: rgb(194, 136, 191);
 }
 
 .profile-img img {
@@ -28,11 +40,6 @@
 .profile-info div {
     margin: 0.2vw 0.2vw 0 0.2vw;
     padding: 0.6vw 0 0 0;
-}
-
-a {
-    color: var(--black);
-    text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
