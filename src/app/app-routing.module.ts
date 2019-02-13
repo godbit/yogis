@@ -7,8 +7,9 @@ import { ProfileOverviewComponent } from './profile/profile-overview/profile-ove
 
 const routes: Routes = [
   {
-    path: 'profile', component: ProfileOverviewComponent,
+    path: 'profile',
     children: [
+      { path: '', component: ProfileOverviewComponent},
       { path: ':name', component: ProfileContainerComponent }
     ]
   },
