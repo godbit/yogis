@@ -3,11 +3,52 @@
     padding: 20px;
     box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
     border-radius: 8px;
-    width: 20vw;
-    min-width: 200px;
+    width: 25vw;
+    min-width: 260px;
     margin: 20px;
+    box-sizing: border-box;
+    color: var(--black);
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 2vw;
 }
 
 .profile-img img {
     width: 100%;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    border-top: 2px solid var(--black);
+    margin: 0.5vw 0;
+}
+
+.profile-info div {
+    margin: 0.2vw 0.2vw 0 0.2vw;
+    padding: 0.6vw 0 0 0;
+}
+
+a {
+    color: var(--black);
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    .thumb-container {
+        width: 100%;
+        margin: 10px 0;
+        font-size: 24px;
+    }
+
+    .profile-info {
+        border-top: 1px solid var(--black);
+        margin: 5px 0 0 0;
+    }
+    
+    .profile-info div {
+        margin: 2px 2px 0 2px;
+        padding: 6px 0 0 0;
+    }
 }

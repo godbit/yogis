@@ -1,8 +1,17 @@
-.thumb-container {
+.overview-container {
     display: flex;
     flex-direction: row;
     align-content: center;
-    max-width: 80vw;
+    justify-content: center;
+    width: 90%;
     flex-wrap: wrap;
     margin: auto;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+    .overview-container {
+        width: 100%;
+        padding: 10px;
+    }
 }

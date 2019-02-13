@@ -1,6 +1,4 @@
-<div class="thumb-container">
-  <div *ngFor="let key of keys">
-    <app-profile-thumb [key]="key"></app-profile-thumb>
-  </div>
+<div class="overview-container">
+  <app-profile-thumb *ngFor="let key of keys" [key]="key"></app-profile-thumb>
 </div>
 
