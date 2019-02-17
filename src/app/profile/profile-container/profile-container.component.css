@@ -24,6 +24,7 @@
 
 @media screen and (max-width: 768px) {
     .separator {
+        display: none;
         border-top: 2px solid black;
         justify-self: stretch;
         margin: 2vw;
@@ -40,19 +41,28 @@
     width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+    .profile-img {
+        margin: 10px;
+    }
+}
+
 
 /* ----------- Name ----------- */
 
 .profile-name {
     margin: 2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.2em;
+    align-content: center;
+    justify-items: center;
     justify-content: center;
     color: var(--black);
     font-family: 'Open Sans Condensed', sans-serif;
     position: relative;
 }
+
 .name, .surname {
     font-size: 50px;
 }
@@ -60,6 +70,23 @@
 .nickname {
     font-style: italic;
     font-size: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .profile-name {
+        margin: 10px;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 0.5em;
+    }
+
+    .name, .surname, .nickname {
+        font-size: 36px;
+    }
+    
+    .nickname {
+        font-style: italic;
+    }
 }
 
 .icon {
