@@ -1,6 +1,8 @@
 .outlet-container {
     margin: auto;
-    max-width: 1200px;
+    /* Avoid overlap fixed nav */
+    margin-top: 10em;
+    max-width: 1400px;
 }
 
 @media screen and (max-width: 1400px) {
@@ -18,5 +20,7 @@
 @media screen and (max-width: 768px) {
     .outlet-container {
         margin: 0 10px;
+        /* Avoid overlap fixed nav */
+        margin-top: 4em;
     }
 }

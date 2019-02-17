@@ -7,7 +7,7 @@
         </a>
       </div>
     </div>
-    
+
     <div class="nav-sub-container">
       <div class="nav-item">
         <a routerLink="profile" routerLinkActive="active">
@@ -33,8 +33,29 @@
         <i class="material-icons mobile">spa</i> Yogis
       </a>
     </div>
+
     <div class="nav-item">
-      <i class="material-icons mobile">menu</i>
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <a routerLink="profile" routerLinkActive="active">
+            <mat-icon>people</mat-icon>Profiler
+          </a>
+        </button>
+        <button mat-menu-item>
+          <a routerLink="toplist" routerLinkActive="active">
+            <mat-icon>loyalty</mat-icon>Topplistan
+          </a>
+        </button>
+        <button mat-menu-item>
+          <a routerLink="data" routerLinkActive="active">
+            <mat-icon>show_chart</mat-icon>Data
+          </a>
+        </button>
+      </mat-menu>
     </div>
   </div>
 </nav>

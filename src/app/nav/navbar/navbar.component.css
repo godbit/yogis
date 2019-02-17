@@ -2,6 +2,10 @@ nav {
     width: 100%;
     color: var(--black);
     font-family: 'Open Sans Condensed', sans-serif;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
 }
 
 .material-icons {
@@ -18,7 +22,6 @@ nav {
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid var(--black);
-    margin-bottom: 2vw;
 }
 
 .nav-container.desktop {
@@ -47,6 +50,7 @@ nav {
 
 a {
     padding: 0.25em;
+    color: var(--black);
 }
 
 a.active {
@@ -62,4 +66,17 @@ a:hover {
     border-bottom-width: 1px;
     border-bottom-color: rgb(194, 136, 191);
     border-bottom-style: solid;
+}
+
+a .material-icons {
+    font-size: 24px;
+    margin-right: 6px;
+    color: var(--black);
+}
+
+.menu-button {
+    outline: none;
+    background: none;
+    border: none;
+    padding: 0;
 }
