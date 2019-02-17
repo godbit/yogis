@@ -4,14 +4,12 @@
     display: grid;
     grid-template-columns: 5fr 1vw 3fr;
     grid-gap: 2vw;
-    margin: 0 8vw;
     align-items: stretch;
     justify-items: center;
 }
 
 @media screen and (max-width: 768px) {
     .profile-container {
-        margin: 0 2vw;
         grid-template-columns: 1fr;
     }
 }
