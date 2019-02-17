@@ -1,17 +1,13 @@
 .overview-container {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    width: 90%;
-    flex-wrap: wrap;
-    margin: auto;
-    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2vw;
+    margin: 0 8vw;
 }
 
 @media screen and (max-width: 768px) {
     .overview-container {
-        width: 100%;
-        padding: 10px;
+        margin: 0 2vw;
+        grid-template-columns: 1fr;
     }
 }

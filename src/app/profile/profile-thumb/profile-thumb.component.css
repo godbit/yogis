@@ -1,10 +1,8 @@
 
 .thumb-container {
-    padding: 20px;
+    padding: 1vw;
     box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
-    width: 25vw;
-    min-width: 260px;
-    margin: 20px;
+    width: 100%;
     box-sizing: border-box;
     color: var(--black);
     font-family: 'Open Sans Condensed', sans-serif;
@@ -47,6 +45,7 @@
         width: 100%;
         margin: 10px 0;
         font-size: 24px;
+        padding: 12px;
     }
 
     .profile-info {
