@@ -1,12 +1,12 @@
 
 .thumb-container {
-    padding: 1vw;
+    padding: 0.5em;
     box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
     width: 100%;
     box-sizing: border-box;
     color: var(--black);
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 2vw;
+    font-size: 30px;
 }
 
 .thumb-container:hover {
@@ -32,12 +32,11 @@
     align-content: center;
     justify-content: center;
     border-top: 2px solid var(--black);
-    margin: 0.5vw 0;
+    margin: 0.25em 0;
 }
 
 .profile-info div {
-    margin: 0.2vw 0.2vw 0 0.2vw;
-    padding: 0.6vw 0 0 0;
+    margin: 0.1em 0.1em 0 0.1em;
 }
 
 @media screen and (max-width: 768px) {

@@ -33,7 +33,7 @@
 /* ----------- Img ----------- */
 
 .profile-img {
-    margin: 4vw;
+    margin: 2em;
 }
 
 .profile-img img {
@@ -44,7 +44,7 @@
 /* ----------- Name ----------- */
 
 .profile-name {
-    margin: 4vw;
+    margin: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,9 +1,22 @@
 .outlet-container {
-    margin: 0 8vw;
+    margin: auto;
+    max-width: 1200px;
+}
+
+@media screen and (max-width: 1400px) {
+    .outlet-container {
+        margin: 0 7vw;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .outlet-container {
+        margin: 0 20px;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .outlet-container {
-        margin: 0 2vw;
+        margin: 0 10px;
     }
 }

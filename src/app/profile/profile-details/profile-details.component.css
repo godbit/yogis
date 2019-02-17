@@ -1,7 +1,7 @@
 .container {
-    margin: 4vw;
+    margin: 4em;
     display: grid;
-    grid-gap: 2vw;
+    grid-gap: 2em;
     grid-auto-columns: 1fr 2fr 2fr;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .score p {
-    font-size: 8vw;
+    font-size: 128px;
     font-weight: 900;
 }
 
@@ -30,7 +30,7 @@
 
 p {
     font-size: 24px;
-    margin: 1vw 0;
+    margin: 0.5em 0;
 }
 
 h2 {
@@ -38,5 +38,5 @@ h2 {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 48px;
     font-weight: 600;
-    margin: 1vw 0;
+    margin: 0.5em 0;
 }
