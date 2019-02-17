@@ -1,3 +1,12 @@
 <div class="home">
-  <img src="https://images.unsplash.com/photo-1505608287685-5d03198b5312?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9" alt="">
+  <img *ngIf="isMobile" class="mobile" src="https://images.unsplash.com/photo-1550245890-7192911894f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9" alt="">
+  <img *ngIf="!isMobile" class="desktop" src="https://images.unsplash.com/photo-1500856056008-859079534e9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDD" alt="">
+  <div [@changeState]="quoteState" class="quote-container">
+    <div class="quote">
+      <span>"{{currentQuote.quote}}"</span>
+    </div>
+    <div class="name">
+      <span>- {{currentQuote.name}}</span>
+    </div>
+  </div>
 </div>
