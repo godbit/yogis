@@ -1,19 +1,13 @@
-<p>
-  Profile status: {{state}}
-</p>
 <div class="profile-container" *ngIf="currentProfile">
-  <p>
-    profile container
-  <div class="name">{{currentProfile.name}}</div>
-  
-  <div>
+  <div class="profile-img">
       <img [src]="currentProfile.imgUrl" alt="">
   </div>
-  <div class="profile-thumb" >
+  <div class="separator"></div>
+  <div class="profile-name" >
       <div class="name">{{currentProfile.name}}</div>
       <div class="nickname">{{currentProfile.nickname}}</div>
       <div class="surname">{{currentProfile.surname}}</div>
-      <mat-icon>place</mat-icon>
+    <div class="icon"><i class="material-icons">spa</i></div>
     </div>
 </div>
 
