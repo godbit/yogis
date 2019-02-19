@@ -85,7 +85,7 @@ export class Profile {
   nickname: string;
 
   traits: string[];
-  description: string;
+  description: string[];
   achivements: string[];
 
   imgUrl: string;

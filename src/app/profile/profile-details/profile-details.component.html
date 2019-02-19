@@ -5,20 +5,9 @@
   </div>
   <div class="description">
     <h2>Om {{currentProfile.name}}</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, numquam sapiente iusto consequuntur qui
-      repellendus itaque molestias delectus commodi sequi facilis nobis, modi assumenda dolores. Blanditiis optio
-      ducimus reiciendis in iste qui a fuga beatae, dicta sunt delectus. Rem non sed laboriosam voluptate sapiente
-      fugiat earum quo quas nam consequuntur aut nulla ratione cupiditate et perferendis autem repudiandae
-      exercitationem accusantium ea, ab ut vero atque inventore? Reiciendis veritatis hic consectetur, ullam at sunt
-      illum? Iusto in commodi quibusdam odio ea beatae praesentium nisi quae, soluta ratione veritatis cupiditate
-      cumque a quis! Minus eaque ea dolore facilis impedit ducimus nulla natus.
-    </p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste totam, repellendus amet temporibus natus quisquam.
-      Atque, perferendis. Minima porro cum explicabo quia officia dolorem, quo enim deserunt, ipsam hic voluptates
-      quasi vitae culpa tenetur? Vero ab eveniet quos ratione beatae. Dignissimos laudantium vero maiores ducimus animi
-      dicta aspernatur incidunt numquam in reiciendis aliquam dolore eum voluptatum, facilis accusantium, rerum
-      repellendus.
-    </p>
+    <div *ngFor="let paragraph of currentProfile.description">
+      <p>{{paragraph}}</p>
+    </div>
   </div>
   <div class="traits">
     <h2>Egenskaper</h2>
