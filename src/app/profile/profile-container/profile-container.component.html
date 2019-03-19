@@ -10,7 +10,7 @@
     <div class="icon"><i class="material-icons">spa</i></div>
   </div>
 </div>
-<app-profile-details [currentProfile]="currentProfile"></app-profile-details>
+<app-profile-details *ngIf="currentProfile" [currentProfile]="currentProfile"></app-profile-details>
 
 
 
