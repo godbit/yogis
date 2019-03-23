@@ -17,9 +17,7 @@ export class ProfileDetailsComponent implements OnInit {
   ngOnInit() {
     this.api.getYogiDetails(this.currentProfile.key)
       .subscribe(response => {
-        // Temp test with hard coded 10
-        // TODO: rewrite api to return better json
-        this.score = response['values'][10];
+        this.score = response['Current score'];
       });
   }
 
