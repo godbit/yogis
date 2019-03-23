@@ -4,6 +4,7 @@ import { ProfileContainerComponent } from './profile/profile-container/profile-c
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileOverviewComponent } from './profile/profile-overview/profile-overview.component';
+import { ToplistContainerComponent } from './toplist/toplist-container/toplist-container.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,9 @@ const routes: Routes = [
       { path: '', component: ProfileOverviewComponent},
       { path: ':name', component: ProfileContainerComponent }
     ]
+  },
+  {
+    path: 'toplist', component: ToplistContainerComponent
   },
   {
     path: '', component: HomeComponent

@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavModule } from './nav/nav.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { ToplistModule } from './toplist/toplist.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     ProfileModule,
     NavModule,
+    ToplistModule,
     HttpClientModule,
     BrowserAnimationsModule,
     DeviceDetectorModule.forRoot()
