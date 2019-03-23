@@ -1,5 +1,5 @@
-<p>
-  toplist-container works!
-</p>
-<app-toplist-item></app-toplist-item>
-<app-toplist-item></app-toplist-item>
+<div class="container">
+  <h1>Topplistan</h1>
+  <app-toplist-item *ngFor="let key of keys" [key]="key"></app-toplist-item>
+</div>
+

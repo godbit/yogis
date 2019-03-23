@@ -11,13 +11,13 @@ import { YogiDetails } from 'src/app/api/yogi-details';
 export class ProfileDetailsComponent implements OnInit {
 
   @Input() currentProfile: Profile;
-  yogiDetials: YogiDetails;
+  yogiDetails: YogiDetails;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
     this.api.getYogiDetails(this.currentProfile.key)
-      .subscribe(response => this.yogiDetials = response);
+      .subscribe(response => this.yogiDetails = response);
     this.api.getYogiSeries(this.currentProfile.key)
       .subscribe(response => console.log('pass'));
   }

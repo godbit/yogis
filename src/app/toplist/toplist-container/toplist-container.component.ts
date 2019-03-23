@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileDataService } from 'src/app/profile/profile-data.service';
 
 @Component({
   selector: 'app-toplist-container',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToplistContainerComponent implements OnInit {
 
-  constructor() { }
+  keys: string[] = [];
+
+  constructor(private profileDataService: ProfileDataService) { }
 
   ngOnInit() {
+    this.keys = this.profileDataService.getKeys();
   }
 
 }

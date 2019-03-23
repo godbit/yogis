@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { YogiDetails } from 'src/app/api/yogi-details';
+import { ApiService } from 'src/app/api/api.service';
+import { ProfileDataService } from 'src/app/profile/profile-data.service';
 
 @Component({
   selector: 'app-toplist-item',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToplistItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() key: string;
+  yogiDetails: YogiDetails;
+
+  constructor(private api: ApiService,
+              private profileDataService: ProfileDataService) { }
 
   ngOnInit() {
+    this.api.getYogiDetails(this.key)
+      .subscribe(response => this.yogiDetails = response);
   }
-
 }
