@@ -17,9 +17,9 @@ export class ProfileDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.api.getYogiDetails(this.currentProfile.key)
-      .subscribe(response => {
-        this.yogiDetials = response;
-      });
+      .subscribe(response => this.yogiDetials = response);
+    this.api.getYogiSeries(this.currentProfile.key)
+      .subscribe(response => console.log('pass'));
   }
 
 }
