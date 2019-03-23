@@ -12,9 +12,7 @@ export class YogiDetails {
     currentScore: number;
 
     constructor() { }
-}
 
-export class YogiDetailsHelper {
     static fromResponse(response): YogiDetails {
         const yd = new YogiDetails();
         yd.a = response['A'];

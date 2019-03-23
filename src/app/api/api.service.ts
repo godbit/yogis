@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { YogiDetails, YogiDetailsHelper } from './yogi-details';
+import { YogiDetails } from './yogi-details';
 import { of, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -36,7 +36,7 @@ export class ApiService {
 
     return this.http.get(API_URL + YOGI_DETAILS + id).pipe(
       map(resp => {
-        const yogiDetails = YogiDetailsHelper.fromResponse(resp);
+        const yogiDetails = YogiDetails.fromResponse(resp);
         this.yogiDetailsMap.set(id, yogiDetails);
         return yogiDetails;
       })
