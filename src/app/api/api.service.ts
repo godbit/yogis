@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { YogiDetails, YogiDetailsHelper } from './yogi-details';
+import { of, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const API_URL = 'sheets/';
 
 
 const ACTIVITIES = 'activities/';
 const YOGI_SERIES = 'yogiSeries/';
-const DETAILS = 'details/';
 const YOGI_DETAILS = 'yogiDetails/';
 
 
@@ -14,7 +16,8 @@ const YOGI_DETAILS = 'yogiDetails/';
   providedIn: 'root'
 })
 
-export class ApiService {
+export class ApiService { 
+  yogiDetailsMap = new Map<string, YogiDetails>();
 
   constructor(private http: HttpClient) { }
 
@@ -22,16 +25,22 @@ export class ApiService {
     return this.http.get(API_URL + ACTIVITIES);
   }
 
-  getDetails() {
-    return this.http.get(API_URL + DETAILS);
-  }
-
   getYogiSeries(id: string) {
     return this.http.get(API_URL + YOGI_SERIES + id);
   }
 
-  getYogiDetails(id: string) {
-    return this.http.get(API_URL + YOGI_DETAILS + id);
+  getYogiDetails(id: string): Observable<YogiDetails> {
+    if (this.yogiDetailsMap.has(id)) {
+      return of(this.yogiDetailsMap.get(id));
+    }
+
+    return this.http.get(API_URL + YOGI_DETAILS + id).pipe(
+      map(resp => {
+        const yogiDetails = YogiDetailsHelper.fromResponse(resp);
+        this.yogiDetailsMap.set(id, yogiDetails);
+        return yogiDetails;
+      })
+    );
   }
 
 }

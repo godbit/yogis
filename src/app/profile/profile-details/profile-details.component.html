@@ -1,7 +1,7 @@
 <div *ngIf="currentProfile" class="container">
   <div class="score">
     <h2>Score</h2>
-    <p>{{score}}</p>
+    <p *ngIf="yogiDetials">{{yogiDetials.currentScore}}</p>
   </div>
   <div class="description">
     <h2>Om {{currentProfile.name}}</h2>

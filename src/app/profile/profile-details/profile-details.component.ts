@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Profile } from '../profile-data.service';
 import { ApiService } from 'src/app/api/api.service';
+import { YogiDetails } from 'src/app/api/yogi-details';
 
 @Component({
   selector: 'app-profile-details',
@@ -10,14 +11,14 @@ import { ApiService } from 'src/app/api/api.service';
 export class ProfileDetailsComponent implements OnInit {
 
   @Input() currentProfile: Profile;
-  score: number;
+  yogiDetials: YogiDetails;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
     this.api.getYogiDetails(this.currentProfile.key)
       .subscribe(response => {
-        this.score = response['Current score'];
+        this.yogiDetials = response;
       });
   }
 
