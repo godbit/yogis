@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileContainerComponent } from './profile-container/profile-container.component';
-import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 
 import { MatIconModule } from '@angular/material/icon';
-import { ProfileOverviewComponent } from './profile-overview/profile-overview.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { ProfileThumbComponent } from './profile-thumb/profile-thumb.component';
+import { ProfileContainerComponent } from './individual/profile-container/profile-container.component';
+import { ProfileDetailsComponent } from './individual/profile-details/profile-details.component';
+import { ProfileOverviewComponent } from './overview/profile-overview/profile-overview.component';
+import { ProfileThumbComponent } from './overview/profile-thumb/profile-thumb.component';
 
 @NgModule({
   declarations: [ProfileContainerComponent,

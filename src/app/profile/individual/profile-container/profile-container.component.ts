@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileDataService } from '../profile-data.service';
+import { ProfileDataService } from '../../profile-data.service';
 import { ActivatedRoute } from '@angular/router';
-import { Profile, ProfileState } from '../profile';
+import { Profile, ProfileState } from '../../profile';
 
 @Component({
   selector: 'app-profile-container',

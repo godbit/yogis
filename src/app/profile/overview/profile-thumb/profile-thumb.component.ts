@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProfileDataService } from '../profile-data.service';
-import { Profile, ProfileState } from '../profile';
+import { ProfileDataService } from '../../profile-data.service';
+import { Profile, ProfileState } from '../../profile';
 
 @Component({
   selector: 'app-profile-thumb',

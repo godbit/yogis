@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileDataService } from '../profile-data.service';
+import { ProfileDataService } from '../../profile-data.service';
 
 @Component({
   selector: 'app-profile-overview',
