@@ -1,5 +1,4 @@
 <div class="toplist-item">
-  <span>Name:</span>
-  <span *ngIf="yogiDetails">{{yogiDetails.currentScore}}</span>
+  <div class="name" *ngIf="profile">{{profile.name}}</div>
+  <div class="score" *ngIf="yogiDetails">{{yogiDetails.currentScore}}</div>
 </div>
-

@@ -11,17 +11,11 @@ import { Profile } from 'src/app/profile/profile';
 })
 export class ToplistItemComponent implements OnInit {
 
-  @Input() key: string;
-  yogiDetails: YogiDetails;
-  profile: Profile;
+  @Input() yogiDetails: YogiDetails;
+  @Input() profile: Profile;
 
   constructor(private api: ApiService,
               private profileDataService: ProfileDataService) { }
 
-  ngOnInit() {
-    this.api.getYogiDetails(this.key)
-      .subscribe(response => this.yogiDetails = response);
-    this.profileDataService.getProfile(this.key)
-      .subscribe(response => this.profile = response);
-  }
+  ngOnInit() {  }
 }
