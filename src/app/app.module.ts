@@ -12,7 +12,7 @@ import { NavModule } from './nav/nav.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ToplistModule } from './toplist/toplist.module';
-import { ChartsModule } from './charts/charts.module';
+import { YogiChartsModule } from './charts/yogi-charts.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { ChartsModule } from './charts/charts.module';
     ProfileModule,
     NavModule,
     ToplistModule,
-    ChartsModule,
+    YogiChartsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     DeviceDetectorModule.forRoot()
