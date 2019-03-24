@@ -13,6 +13,7 @@ export class ToplistItemComponent implements OnInit {
 
   @Input() yogiDetails: YogiDetails;
   @Input() profile: Profile;
+  @Input() position: number;
 
   constructor(private api: ApiService,
               private profileDataService: ProfileDataService) { }

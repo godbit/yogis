@@ -1,5 +1,9 @@
 <div class="container">
   <h1>Topplistan</h1>
-  <app-toplist-item *ngFor="let pair of pairList" [yogiDetails]="pair[0]" [profile]="pair[1]"></app-toplist-item>
+  <app-toplist-item *ngFor="let pair of pairList let i = index"
+                    [yogiDetails]="pair[0]"
+                    [profile]="pair[1]"
+                    [position]="i + 1">
+  </app-toplist-item>
 </div>
 
