@@ -10,7 +10,7 @@ import { Profile, ProfileState } from '../../profile';
 export class ProfileThumbComponent implements OnInit {
 
   @Input() key: string;
-  currentProfile: Profile;
+  profile: Profile;
   state: ProfileState = ProfileState.Void;
 
   constructor(private profileDataService: ProfileDataService) { }
@@ -19,7 +19,7 @@ export class ProfileThumbComponent implements OnInit {
     this.stateLoading();
     this.profileDataService.getProfile(this.key).subscribe(
       (response) => {
-        this.currentProfile = response;
+        this.profile = response;
         this.stateFound();
       });
   }

@@ -10,15 +10,15 @@ import { Profile } from '../../profile';
 })
 export class ProfileDetailsComponent implements OnInit {
 
-  @Input() currentProfile: Profile;
+  @Input() profile: Profile;
   yogiDetails: YogiDetails;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getYogiDetails(this.currentProfile.key)
+    this.api.getYogiDetails(this.profile.key)
       .subscribe(response => this.yogiDetails = response);
-    this.api.getYogiSeries(this.currentProfile.key)
+    this.api.getYogiSeries(this.profile.key)
       .subscribe(response => console.log('pass'));
   }
 

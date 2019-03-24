@@ -1,16 +1,16 @@
-<div class="profile-container" *ngIf="currentProfile">
+<div class="profile-container" *ngIf="profile">
   <div class="profile-img">
-      <img [src]="currentProfile.imgUrl" alt="">
+      <img [src]="profile.imgUrl" alt="">
   </div>
   <div class="separator"></div>
   <div class="profile-name" >
-    <div class="name">{{currentProfile.name}}</div>
-    <div class="nickname">{{currentProfile.nickname}}</div>
-    <div class="surname">{{currentProfile.surname}}</div>
+    <div class="name">{{profile.name}}</div>
+    <div class="nickname">{{profile.nickname}}</div>
+    <div class="surname">{{profile.surname}}</div>
     <div class="icon"><i class="material-icons">spa</i></div>
   </div>
 </div>
-<app-profile-details *ngIf="currentProfile" [currentProfile]="currentProfile"></app-profile-details>
+<app-profile-details *ngIf="profile" [profile]="profile"></app-profile-details>
 
 
 

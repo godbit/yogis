@@ -1,23 +1,23 @@
-<div *ngIf="currentProfile" class="container">
+<div *ngIf="profile" class="container">
   <div class="score">
     <h2>Score</h2>
     <p *ngIf="yogiDetails">{{yogiDetails.currentScore}}</p>
   </div>
   <div class="description">
-    <h2>Om {{currentProfile.name}}</h2>
-    <div *ngFor="let paragraph of currentProfile.description">
+    <h2>Om {{profile.name}}</h2>
+    <div *ngFor="let paragraph of profile.description">
       <p>{{paragraph}}</p>
     </div>
   </div>
   <div class="traits">
     <h2>Egenskaper</h2>
-    <div *ngFor="let trait of currentProfile.traits">
+    <div *ngFor="let trait of profile.traits">
       <p>{{trait}}</p>
     </div>
   </div>
   <div class="achivements">
     <h2>Utmärkelser</h2>
-    <div *ngFor="let achivement of currentProfile.achivements">
+    <div *ngFor="let achivement of profile.achivements">
       <p>{{achivement}}</p>
     </div>
   </div>

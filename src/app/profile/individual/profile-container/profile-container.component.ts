@@ -10,7 +10,7 @@ import { Profile, ProfileState } from '../../profile';
 })
 export class ProfileContainerComponent implements OnInit {
 
-  currentProfile: Profile;
+  profile: Profile;
   state: ProfileState = ProfileState.Void;
 
   constructor(private profileDataService: ProfileDataService,
@@ -22,7 +22,7 @@ export class ProfileContainerComponent implements OnInit {
       this.stateLoading();
       this.profileDataService.getProfile(name).subscribe(
         (response) => {
-          this.currentProfile = response;
+          this.profile = response;
           this.stateFound();
         });
     },
