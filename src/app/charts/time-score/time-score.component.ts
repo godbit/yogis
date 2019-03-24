@@ -14,21 +14,32 @@ export class TimeScoreComponent implements OnInit {
   finished = false;
 
   public lineChartData: ChartDataSets[] = [];
-
   public lineChartLabels: Label[] = [];
-
-  public lineChartOptions: ChartOptions = {
-    responsive: true,
-  };
-
   public lineChartColors: Color[] = [];
   public lineChartLegend = true;
   public lineChartType = 'line';
   public lineChartPlugins = [];
 
+  public lineChartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      xAxes: [{
+        type: 'time',
+        distribution: 'linear',
+        time: {
+          unit: 'day',
+          tooltipFormat: 'DD/MM/YYYY'
+        }
+      }],
+      yAxes: [{
+        scaleLabel: { labelString: 'Poäng' }
+      }]
+    }
+  };
 
   constructor(private chartsService: ChartsService,
-              private profileDataService: ProfileDataService) { }
+    private profileDataService: ProfileDataService) { }
 
   ngOnInit() {
     const keys = this.profileDataService.getKeys();
@@ -53,10 +64,22 @@ export class TimeScoreComponent implements OnInit {
 
   updateChartData(yogiSeries: YogiSeries, id: string) {
     const scores = yogiSeries.series.map(series => series.score);
+    const dates = yogiSeries.series.map(series => new Date(series.date));
+
+    const chartPoints = this.combineToChartPoint(dates, scores);
     this.lineChartData = [
       ...this.lineChartData,
-      {data: scores, label: id}
+      {
+        data: chartPoints.map((entry) => ({ t: entry[0], y: entry[1] })),
+        label: id
+      }
     ];
+  }
+
+  combineToChartPoint(x: Date[], y: number[]) {
+    return x.map((date, i) => {
+      return [date, y[i]];
+    });
   }
 
   updateLabels(yogiSeries: YogiSeries) {
@@ -64,19 +87,21 @@ export class TimeScoreComponent implements OnInit {
       return;
     }
     this.lineChartLabels = yogiSeries.series.map(series => series.date);
-    console.log(yogiSeries.series[0].date)
-    console.log(new Date(yogiSeries.series[0].date))
   }
 
   updateChartColors(id: string) {
+    const baseColor = this.chartsService.getColor(id);
+
     this.lineChartColors = [
       ...this.lineChartColors,
       {
-        borderColor: this.chartsService.getColor(id),
-        fill: false
+        borderColor: baseColor + 'CC', // 80% opacity
+        borderWidth: 4,
+        backgroundColor: 'rgba(0,0,0,0)',
+        pointBackgroundColor: baseColor + '80', // 50% opacity
+        pointBorderWidth: 3,
+        pointRadius: 5,
       }
     ];
-    console.log(this.lineChartColors)
   }
-
 }
