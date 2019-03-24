@@ -6,6 +6,9 @@ import { TimeScoreComponent } from './time-score/time-score.component';
   declarations: [TimeScoreComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    TimeScoreComponent
   ]
 })
 export class ChartsModule { }

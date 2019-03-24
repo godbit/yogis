@@ -12,6 +12,7 @@ import { NavModule } from './nav/nav.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ToplistModule } from './toplist/toplist.module';
+import { ChartsModule } from './charts/charts.module';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ToplistModule } from './toplist/toplist.module';
     ProfileModule,
     NavModule,
     ToplistModule,
+    ChartsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     DeviceDetectorModule.forRoot()

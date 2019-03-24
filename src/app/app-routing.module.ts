@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ToplistContainerComponent } from './toplist/toplist-container/toplist-container.component';
 import { ProfileOverviewComponent } from './profile/overview/profile-overview/profile-overview.component';
 import { ProfileContainerComponent } from './profile/individual/profile-container/profile-container.component';
+import { TimeScoreComponent } from './charts/time-score/time-score.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
   },
   {
     path: 'toplist', component: ToplistContainerComponent
+  },
+  {
+    path: 'timescore', component: TimeScoreComponent
   },
   {
     path: '', component: HomeComponent
