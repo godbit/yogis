@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Profile } from '../profile-data.service';
 import { ApiService } from 'src/app/api/api.service';
 import { YogiDetails } from 'src/app/api/yogi-details';
+import { Profile } from '../profile';
 
 @Component({
   selector: 'app-profile-details',

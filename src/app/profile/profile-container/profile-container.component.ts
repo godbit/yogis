@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileDataService, Profile, ProfileState } from '../profile-data.service';
+import { ProfileDataService } from '../profile-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { Profile, ProfileState } from '../profile';
 
 @Component({
   selector: 'app-profile-container',
@@ -19,18 +20,16 @@ export class ProfileContainerComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const name = params.get('name');
       this.stateLoading();
-      const obs = this.profileDataService.getProfile(name);
-      obs.subscribe((response) => this.handleProfileResponse(response));
+      this.profileDataService.getProfile(name).subscribe(
+        (response) => {
+          this.currentProfile = response;
+          this.stateFound();
+        });
     },
     err => {
       this.stateNotFound();
     }
     );
-  }
-
-  handleProfileResponse(response) {
-    this.stateFound();
-    this.currentProfile = this.profileDataService.asProfile(response);
   }
 
   stateLoading() {

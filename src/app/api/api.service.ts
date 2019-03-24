@@ -17,7 +17,7 @@ const YOGI_DETAILS = 'yogiDetails/';
   providedIn: 'root'
 })
 
-export class ApiService { 
+export class ApiService {
   yogiDetailsMap = new Map<string, YogiDetails>();
   yogiSeriesMap = new Map<string, YogiSeries>();
 

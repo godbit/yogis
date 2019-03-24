@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProfileDataService, Profile, ProfileState } from '../profile-data.service';
+import { ProfileDataService } from '../profile-data.service';
+import { Profile, ProfileState } from '../profile';
 
 @Component({
   selector: 'app-profile-thumb',
@@ -16,13 +17,11 @@ export class ProfileThumbComponent implements OnInit {
 
   ngOnInit() {
     this.stateLoading();
-    const obs = this.profileDataService.getProfile(this.key);
-    obs.subscribe((response) => this.handleProfileResponse(response));
-  }
-
-  handleProfileResponse(response) {
-    this.stateFound();
-    this.currentProfile = this.profileDataService.asProfile(response);
+    this.profileDataService.getProfile(this.key).subscribe(
+      (response) => {
+        this.currentProfile = response;
+        this.stateFound();
+      });
   }
 
   stateLoading() {
