@@ -10,8 +10,8 @@ import { Observable, zip } from 'rxjs';
   templateUrl: './toplist-container.component.html',
   styleUrls: ['./toplist-container.component.css']
 })
-export class ToplistContainerComponent implements OnInit {
 
+export class ToplistContainerComponent implements OnInit {
   keys: string[] = [];
   pairList: [YogiDetails, Profile][] = [];
   loadingList: [Observable<[YogiDetails, Profile]>][] = [];
