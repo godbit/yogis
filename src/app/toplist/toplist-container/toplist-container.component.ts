@@ -14,6 +14,7 @@ export class ToplistContainerComponent implements OnInit {
 
   keys: string[] = [];
   pairList: [YogiDetails, Profile][] = [];
+  loadingList: [Observable<[YogiDetails, Profile]>][] = [];
 
   constructor(private profileDataService: ProfileDataService,
     private api: ApiService) { }
@@ -42,16 +43,25 @@ export class ToplistContainerComponent implements OnInit {
 
   combineObservables(details$: Observable<YogiDetails>, profile$: Observable<Profile>) {
     const combined = zip(details$, profile$);
+    // Add one item as loading
+    this.loadingList = [
+      ...this.loadingList,
+      [combined]
+    ];
     combined.subscribe((comb) => {
       this.updateArray(comb[0], comb[1]);
     });
   }
 
   updateArray(yogiDetails: YogiDetails, profile: Profile) {
+    // Add one item as finished
     this.pairList = [
       ...this.pairList,
       [yogiDetails, profile]
     ];
+    // Remove one item as loading
+    this.loadingList.pop();
+    // Sort list of loaded items, higher score on top
     this.pairList.sort((a: [YogiDetails, Profile], b: [YogiDetails, Profile]) => {
       if (a[0].currentScore < b[0].currentScore) { return 1; }
       if (a[0].currentScore > b[0].currentScore) { return -1; }

@@ -21,6 +21,8 @@ a {
     --main-light: hsl(190, 58%, 60%);
     --main-dark: hsl(190, 58%, 20%);
 
+    --accent: hsl(220, 58%, 30%);
+
     /* Other */
     --error: hsl(0, 75%, 50%);
 }
