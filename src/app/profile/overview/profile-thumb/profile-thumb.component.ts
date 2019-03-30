@@ -12,28 +12,24 @@ export class ProfileThumbComponent implements OnInit {
   @Input() key: string;
   profile: Profile;
   state: ProfileState = ProfileState.Void;
+  loaded = false;
 
   constructor(private profileDataService: ProfileDataService) { }
 
   ngOnInit() {
-    this.stateLoading();
     this.profileDataService.getProfile(this.key).subscribe(
       (response) => {
         this.profile = response;
-        this.stateFound();
       });
   }
 
-  stateLoading() {
-    this.state = ProfileState.Loading;
-  }
-
-  stateFound() {
-    this.state = ProfileState.Found;
+  imageLoaded() {
+    setTimeout(() => {
+      this.loaded = true;
+    }, 200);
   }
 
   stateNotFound() {
-    this.state = ProfileState.NotFound;
     console.log('ProfileContainerComponent encountered an error fetching profile ' + name);
   }
 }
