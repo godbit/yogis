@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
-import { SingleDataSet, Label } from 'ng2-charts';
+import { SingleDataSet, Label, Color } from 'ng2-charts';
+import { YogiDetails } from 'src/app/api/yogi-details';
+import { GRADE_COLORMAP } from 'src/app/globals/constants';
 
 @Component({
   selector: 'app-grade-distribution',
@@ -9,44 +11,66 @@ import { SingleDataSet, Label } from 'ng2-charts';
 })
 export class GradeDistributionComponent implements OnInit {
 
-    // Pie
-    public pieChartOptions: ChartOptions = {
-      responsive: true,
-      plugins: {
-        datalabels: {
-          formatter: (value, ctx) => {
-            const label = ctx.chart.data.labels[ctx.dataIndex];
-            return label;
-          },
-        },
-      }
-    };
-    public pieChartLabels: Label[] = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
-    public pieChartData: SingleDataSet = [300, 500, 100];
-    public pieChartType: ChartType = 'pie';
-    public pieChartLegend = true;
+  @Input() yogiDetails: YogiDetails;
 
-    constructor() { }
+  public doughnutChartData: SingleDataSet;
+  public doughnutChartLabels: Label[];
+  public doughnutChartColors: Color[];
+  public doughnutChartType: ChartType = 'doughnut';
 
-    ngOnInit() {
+  public doughnutChartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      display: true,
+      position: 'right'
     }
+  };
 
-    // events
-    public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-      console.log(event, active);
-    }
 
-    public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-      console.log(event, active);
-    }
 
-    changeLabels() {
-      const words = ['hen', 'variable', 'embryo', 'instal', 'pleasant', 'physical', 'bomber', 'army', 'add', 'film',
-        'conductor', 'comfortable', 'flourish', 'establish', 'circumstance', 'chimney', 'crack', 'hall', 'energy',
-        'treat', 'window', 'shareholder', 'division', 'disk', 'temptation', 'chord', 'left', 'hospital', 'beef',
-        'patrol', 'satisfied', 'academy', 'acceptance', 'ivory', 'aquarium', 'building', 'store', 'replace', 'language',
-        'redeem', 'honest', 'intention', 'silk', 'opera', 'sleep', 'innocent', 'ignore', 'suite', 'applaud', 'funny'];
-      const randomWord = () => words[Math.trunc(Math.random() * words.length)];
-      this.pieChartLabels = Array.apply(null, { length: 3 }).map(_ => randomWord());
-    }
+  constructor() { }
+
+  ngOnInit() {
+    this.setChartData();
+    this.setChartLabels();
+    this.setChartColors();
   }
+
+  setChartData() {
+    this.doughnutChartData = [
+      this.yogiDetails.a,
+      this.yogiDetails.b,
+      this.yogiDetails.c,
+      this.yogiDetails.d,
+      this.yogiDetails.e,
+      this.yogiDetails.f,
+      this.yogiDetails.dash
+    ];
+  }
+
+  setChartLabels() {
+    this.doughnutChartLabels = [
+      'a',
+      'b',
+      'c',
+      'd',
+      'e',
+      'f',
+      '-'
+    ];
+  }
+
+  setChartColors() {
+    this.doughnutChartColors = [{
+      backgroundColor: [
+        GRADE_COLORMAP.get('a'),
+        GRADE_COLORMAP.get('b'),
+        GRADE_COLORMAP.get('c'),
+        GRADE_COLORMAP.get('d'),
+        GRADE_COLORMAP.get('e'),
+        GRADE_COLORMAP.get('f'),
+        GRADE_COLORMAP.get('dash')]
+    }];
+  }
+}

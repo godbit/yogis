@@ -1,12 +1,18 @@
-<p>a: {{ yogiDetails.a }}</p>
-<p>b: {{ yogiDetails.b }}</p>
-<p>c: {{ yogiDetails.c }}</p>
-<p>d: {{ yogiDetails.d }}</p>
-<p>e: {{ yogiDetails.e }}</p>
-<p>f: {{ yogiDetails.f }}</p>
-<p>dash: {{ yogiDetails.dash }}</p>
-<p>attending: {{ yogiDetails.attending }}</p>
-<p>absent: {{ yogiDetails.absent }}</p>
-<p>percent: {{ yogiDetails.percent }}</p>
-<p>currentScore: {{ yogiDetails.currentScore }}</p>
-<app-grade-distribution></app-grade-distribution>
+<div class="container">
+    <h3>Betygsfördelning</h3>
+    <h3>Närvaro</h3>
+    <app-grade-distribution [yogiDetails]="yogiDetails"></app-grade-distribution>
+    <div class="statsWrapper">
+        <mat-icon>mood</mat-icon>
+        <div>Närvarande: </div>
+        <div class="stats">{{ yogiDetails.attending }}</div>
+        
+        <mat-icon>sentiment_very_dissatisfied</mat-icon>
+        <div>Frånvarande: </div>
+        <div class="stats">{{ yogiDetails.absent }}</div>
+
+        <mat-icon>whatshot</mat-icon>
+        <div>Procent: </div>
+        <div class="stats" [ngStyle]="{'color' : attendanceColor }">{{ yogiDetails.percent*100 }}%</div>
+    </div>
+</div>
