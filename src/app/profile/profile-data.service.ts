@@ -3,16 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Profile, DATAPATH, DATAFORMAT } from './profile';
 import { map } from 'rxjs/operators';
-
-
-const MEMBERS = [
-  'cissi',
-  'emelia',
-  'emil',
-  'fanny',
-  'henry',
-  'lanny'
-];
+import { MEMBERS } from '../globals/constants';
 
 @Injectable({
   providedIn: 'root'

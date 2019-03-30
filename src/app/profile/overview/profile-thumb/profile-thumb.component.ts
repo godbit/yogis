@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProfileDataService } from '../../profile-data.service';
 import { Profile, ProfileState } from '../../profile';
 import { trigger, transition, useAnimation } from '@angular/animations';
-import { fadeInScaleAnimation } from 'src/app/animations/animations';
+import { fadeInScaleAnimation } from 'src/app/globals/animations';
 
 @Component({
   selector: 'app-profile-thumb',

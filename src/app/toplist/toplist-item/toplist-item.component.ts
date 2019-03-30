@@ -4,7 +4,7 @@ import { ApiService } from 'src/app/api/api.service';
 import { ProfileDataService } from 'src/app/profile/profile-data.service';
 import { Profile } from 'src/app/profile/profile';
 import { transition, trigger, animate, style, state, query, useAnimation } from '@angular/animations';
-import { pulseAnimation, flipInAnimation } from 'src/app/animations/animations';
+import { pulseAnimation, flipInAnimation } from 'src/app/globals/animations';
 
 @Component({
   selector: 'app-toplist-item',
