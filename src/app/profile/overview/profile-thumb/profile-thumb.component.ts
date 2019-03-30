@@ -14,7 +14,7 @@ import { fadeInScaleAnimation } from 'src/app/globals/animations';
         '* => *',
         useAnimation(fadeInScaleAnimation, {
           params: {
-            time: '200ms ease-in-out'
+            time: '300ms ease-in-out'
           }
         })
       )
@@ -39,9 +39,7 @@ export class ProfileThumbComponent implements OnInit {
   }
 
   imageLoaded() {
-    setTimeout(() => {
-      this.loaded = true;
-    }, 200);
+    this.loaded = true;
   }
 
   stateNotFound() {
