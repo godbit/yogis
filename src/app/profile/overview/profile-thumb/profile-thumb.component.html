@@ -1,7 +1,7 @@
 <div class="thumb-container" *ngIf="profile">
   <a [routerLink]="key">
     <div class="profile-img">
-      <div [hidden]="!loaded">
+      <div [hidden]="!loaded" [@imageLoadedAnimation]="loaded">
           <img 
           [src]="profile.imgUrl"
           (load)="imageLoaded()">

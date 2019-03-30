@@ -34,3 +34,19 @@ export const flipInAnimation = animation([
         ])
     )
 ]);
+
+export const fadeInAnimation = animation([
+    style({ opacity: 0 }),
+    animate('{{ time }}', style({ opacity: 1 }))
+]);
+
+export const fadeInScaleAnimation = animation([
+    animate(
+        '{{ time }}',
+        keyframes([
+            style({ transform: 'scale(0.4)', opacity: '0', offset: 0 }),
+            style({ transform: 'scale(1.1)', opacity: '0.7', offset: 0.7 }),
+            style({ transform: 'scale(1)', opacity: '1', offset: 1 })
+        ])
+    )
+]);
