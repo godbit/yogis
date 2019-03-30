@@ -34,9 +34,15 @@ export class ToplistItemComponent implements OnInit {
   @Input() position: number;
 
   state;
+  open = false;
 
   constructor(private api: ApiService,
               private profileDataService: ProfileDataService) { }
 
   ngOnInit() {  }
+
+  expand() {
+    this.open = !this.open;
+  }
+
 }

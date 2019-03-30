@@ -1,5 +1,11 @@
-<div [@toplistAnimation]="state" class="toplist-item">
-  <div class="position">{{position}}</div>
-  <div class="name">{{profile.name}}</div>
-  <div class="score">{{yogiDetails.currentScore}}</div>
+<div class="container">
+  <div [@toplistAnimation]="state" class="toplist-item"
+      (click)="expand()">
+    <div class="position">{{position}}</div>
+    <div class="name">{{profile.name}}</div>
+    <div class="score">{{yogiDetails.currentScore}}</div>
+    <mat-icon *ngIf="!open">expand_more</mat-icon>
+    <mat-icon *ngIf="open">expand_less</mat-icon>
+  </div>
+  <app-toplist-details [yogiDetails]="yogiDetails" *ngIf="open"></app-toplist-details>
 </div>
