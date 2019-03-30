@@ -32,7 +32,7 @@ app-toplist-item {
   }
   
   .spinner > div {
-    background-color: var(--accent);
+    background-color: var(--accent-light);
     height: 100%;
     width: 6px;
     margin: 2px;

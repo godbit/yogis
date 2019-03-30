@@ -16,12 +16,14 @@ a {
     --gray: hsl(120, 0%, 70%);
     --black: hsl(0, 0%, 0%);
 
-    /* App colors */
-    --main: hsl(190, 58%, 30%);
-    --main-light: hsl(190, 58%, 60%);
-    --main-dark: hsl(190, 58%, 20%);
+    --shadow: rgba(32, 33, 36, 0.28);
 
-    --accent: hsl(220, 58%, 30%);
+    /* App colors */
+    --main: #a9ebfc;
+    --main-light: #e9e8ff;
+    
+    --accent: #c64d82;
+    --accent-light: #ffb7b2;
 
     /* Other */
     --error: hsl(0, 75%, 50%);

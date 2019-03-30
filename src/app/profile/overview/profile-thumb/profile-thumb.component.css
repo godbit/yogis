@@ -1,7 +1,7 @@
 
 .thumb-container {
     padding: 0.5em;
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    box-shadow: 0 1px 6px var(--shadow);
     width: 100%;
     box-sizing: border-box;
     color: var(--black);
@@ -12,14 +12,14 @@
 .thumb-container:hover {
     transition: ease-in-out;
     transition-duration: 0.25s;
-    box-shadow: 4px 6px 6px rgba(32, 33, 36, 0.28);
+    box-shadow: 4px 6px 6px var(--shadow);
 }
 
 .thumb-container:hover * {
     transition: ease-in-out;
     transition-duration: 0.25s;
-    color: rgb(194, 136, 191);
-    border-top-color: rgb(194, 136, 191);
+    color: var(--accent);
+    border-top-color: var(--accent);
 }
 
 .profile-img img {

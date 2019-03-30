@@ -2,7 +2,7 @@ nav {
     width: 100%;
     color: var(--black);
     font-family: 'Open Sans Condensed', sans-serif;
-    background-color: white;
+    background-color: var(--white);
     position: fixed;
     top: 0;
     z-index: 9999;
@@ -62,9 +62,9 @@ a.active {
 a:hover {
     transition: ease-in-out;
 	transition-duration: 0.25s;
-    color: rgb(194, 136, 191);
+    color: var(--accent);
     border-bottom-width: 1px;
-    border-bottom-color: rgb(194, 136, 191);
+    border-bottom-color: var(--accent);
     border-bottom-style: solid;
 }
 
