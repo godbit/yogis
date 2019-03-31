@@ -10,6 +10,7 @@ export class YogiDetails {
     absent: number;
     percent: number;
     currentScore: number;
+    trend: number;
 
     constructor() { }
 
@@ -26,6 +27,7 @@ export class YogiDetails {
         yd.absent = response['Absent'];
         yd.percent = response['Percent'];
         yd.currentScore = response['Current score'];
+        yd.trend = response['Trend'];
         return yd;
     }
 }

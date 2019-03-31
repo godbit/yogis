@@ -1,18 +1,27 @@
 <div class="container">
     <h3>Betygsfördelning</h3>
-    <h3>Närvaro</h3>
+    <h3>Stats</h3>
     <app-grade-distribution [yogiDetails]="yogiDetails"></app-grade-distribution>
     <div class="statsWrapper">
         <mat-icon>mood</mat-icon>
-        <div>Närvarande: </div>
+        <div>Antal pass närvarande: </div>
         <div class="stats">{{ yogiDetails.attending }}</div>
         
         <mat-icon>sentiment_very_dissatisfied</mat-icon>
-        <div>Frånvarande: </div>
+        <div>Antal pass frånvarande: </div>
         <div class="stats">{{ yogiDetails.absent }}</div>
 
         <mat-icon>whatshot</mat-icon>
-        <div>Procent: </div>
+        <div>Närvaro: </div>
         <div class="stats" [ngStyle]="{'color' : attendanceColor }">{{ yogiDetails.percent*100 }}%</div>
+
+        <mat-icon *ngIf="yogiDetails.trend > 0"
+            [ngStyle]="{'color' : trendColor }">trending_up</mat-icon>
+        <mat-icon *ngIf="yogiDetails.trend == 0"
+            [ngStyle]="{'color' : trendColor }">trending_flat</mat-icon>
+        <mat-icon *ngIf="yogiDetails.trend < 0"
+            [ngStyle]="{'color' : trendColor }">trending_down</mat-icon>
+        <div>Trend: </div>
+        <div class="stats" [ngStyle]="{'color' : trendColor }">{{ yogiDetails.trend }}</div>
     </div>
 </div>

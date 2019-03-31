@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { YogiDetails } from 'src/app/api/yogi-details';
-import { ATTENDANCE_COLOR_ARRAY } from 'src/app/globals/constants';
+import { ATTENDANCE_COLOR_ARRAY, TREND_COLOR_ARRAY } from 'src/app/globals/constants';
 
 @Component({
   selector: 'app-toplist-details',
@@ -11,23 +11,34 @@ export class ToplistDetailsComponent implements OnInit {
 
   @Input() yogiDetails: YogiDetails;
   attendanceColor;
+  trendColor;
 
   constructor() { }
 
   ngOnInit() {
     this.getAttendanceColor();
+    this.getTrendColor();
   }
 
   getAttendanceColor() {
-    for (const threshold of ATTENDANCE_COLOR_ARRAY) {
-      if (threshold[0] <= this.yogiDetails.percent) {
-        this.attendanceColor = threshold[1];
-        console.log('found at ' + threshold[0] + ': ' + threshold[1]);
-        return;
-      }
+    this.attendanceColor = this.getItemInArray(ATTENDANCE_COLOR_ARRAY, this.yogiDetails.percent);
+  }
+
+  getTrendColor() {
+    this.trendColor = this.getItemInArray(TREND_COLOR_ARRAY, this.yogiDetails.trend);
+  }
+
+  /**
+   * Has to be a sorted array of "key/value" pairs. Returns the first value where
+   * key <= the passed property value.
+   */
+  getItemInArray(array: [number, string][], propertyValue: number): string {
+    for (const pair of array) {
+      const threshold = pair[0];
+      const value = pair[1];
+      if (threshold <= propertyValue) { return value; }
     }
-    this.attendanceColor = ATTENDANCE_COLOR_ARRAY[ATTENDANCE_COLOR_ARRAY.length - 1][1];
-    console.log('last is ' + this.attendanceColor);
+    return array[array.length - 1][1];
   }
 
 }

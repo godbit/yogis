@@ -32,3 +32,11 @@ ATTENDANCE_COLOR_ARRAY.push([0.75, '#aff075']);
 ATTENDANCE_COLOR_ARRAY.push([0.65, '#ff9900']);
 ATTENDANCE_COLOR_ARRAY.push([0.55, '#ff6a00']);
 ATTENDANCE_COLOR_ARRAY.push([0.45, '#ff0000']);
+
+export const TREND_COLOR_ARRAY: [number, string][] = [];
+TREND_COLOR_ARRAY.push([5, '#19a831']);
+TREND_COLOR_ARRAY.push([3, '#5fcf0b']);
+TREND_COLOR_ARRAY.push([0, '#aff075']);
+TREND_COLOR_ARRAY.push([-2, '#ff9900']);
+TREND_COLOR_ARRAY.push([-5, '#ff6a00']);
+TREND_COLOR_ARRAY.push([-8, '#ff0000']);
