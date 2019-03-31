@@ -12,17 +12,23 @@ export const pulseAnimation = animation([
     )
 ]);
 
-export const slideInAnimation = animation([
+export const slideInXAnimation = animation([
+    style({ transform: 'translateX({{ from }})', opacity: 0 }),
+    animate('{{ time }}', style({ transform: 'translateX(0)', opacity: 1 }))
+]);
+
+export const slideInYAnimation = animation([
     style({ transform: 'translateY({{ from }})', opacity: 0 }),
     animate('{{ time }}', style({ transform: 'translateY(0)', opacity: 1 }))
 ]);
 
-export const slideOutAnimation = animation([
-    animate(
-        '{{ time }}',
-        style({ transform: 'translateY({{ to }})', opacity: 0 })
-    )
-]);
+export const slideOutXAnimation = animation([
+    animate('{{ time }}', style({ transform: 'translateX({{ to }})', opacity: 0 })
+)]);
+
+export const slideOutYAnimation = animation([
+    animate('{{ time }}', style({ transform: 'translateY({{ to }})', opacity: 0 })
+)]);
 
 export const flipInAnimation = animation([
     animate(
