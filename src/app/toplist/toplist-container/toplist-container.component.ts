@@ -3,7 +3,8 @@ import { ProfileDataService } from 'src/app/profile/profile-data.service';
 import { ApiService } from 'src/app/api/api.service';
 import { YogiDetails } from 'src/app/api/yogi-details';
 import { Profile } from 'src/app/profile/profile';
-import { Observable, zip } from 'rxjs';
+import { Observable, zip, timer } from 'rxjs';
+import { timeout, throttleTime, skipUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-toplist-container',
@@ -21,15 +22,12 @@ export class ToplistContainerComponent implements OnInit {
 
   ngOnInit() {
     this.keys = this.profileDataService.getKeys();
-
-    for (const key in this.keys) {
-      if (!this.keys.hasOwnProperty(key)) {
-        continue;
-      }
-
-      const details = this.getDetails(this.keys[key]);
-      const profile = this.getProfile(this.keys[key]);
-      this.combineObservables(details, profile);
+    let i = 0;
+    for (const key of this.keys) {
+      i++;
+      const details = this.getDetails(key);
+      const profile = this.getProfile(key);
+      setTimeout(() => this.combineObservables(details, profile), i * 100);
     }
   }
 
@@ -48,6 +46,7 @@ export class ToplistContainerComponent implements OnInit {
       ...this.loadingList,
       [combined]
     ];
+
     combined.subscribe((comb) => {
       this.updateArray(comb[0], comb[1]);
     });
