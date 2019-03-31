@@ -1,7 +1,11 @@
 <div *ngIf="profile" class="container">
   <div class="score">
     <h2>Score</h2>
-    <p *ngIf="yogiDetails">{{yogiDetails.currentScore}}</p>
+    <div *ngIf="!yogiDetails" class="spinner">
+      <div class="cube1"></div>
+      <div class="cube2"></div>
+    </div>
+    <div *ngIf="yogiDetails">{{yogiDetails.currentScore}}</div>
   </div>
   <div class="description">
     <h2>Om {{profile.name}}</h2>

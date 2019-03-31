@@ -10,7 +10,8 @@
     grid-row: 1 / 3;
 }
 
-.score p {
+.score div {
+    display: flex;
     font-size: 128px;
     font-weight: 900;
 }
@@ -51,12 +52,11 @@ h2 {
         grid-row: 1;
     }
     
-    .score p {
+    .score div {
         font-size: 128px;
         font-weight: 900;
         border-left: 4px solid var(--black);
         margin: 0.1em;
-        padding-left: 0.3em;
     }
     
     .description {
@@ -83,3 +83,33 @@ h2 {
         margin: 0.5em 0;
     }
 }
+
+/* Loading */
+
+.spinner {
+    padding: 0.1em;
+    height: 1em;
+  }
+  
+  .cube1, .cube2 {
+    background-color: #333;
+    width: 0.25em;
+    height: 0.25em;
+    animation: sk-cubemove 1.8s infinite ease-in-out;
+  }
+  
+  .cube2 {
+    animation-delay: -0.9s;
+  }
+  
+  @keyframes sk-cubemove {
+    25% { 
+      transform: translateX(0.5em) rotate(-90deg) scale(0.5);
+    } 50% { 
+      transform: translateX(0.5em) translateY(0.5em) rotate(-180deg);
+    } 75% { 
+      transform: translateX(0em) translateY(0.5em) rotate(-270deg) scale(0.5);
+    } 100% { 
+      transform: rotate(-360deg);
+    }
+  }
